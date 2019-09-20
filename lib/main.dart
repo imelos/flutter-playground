@@ -27,7 +27,6 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-//            color: Color.fromRGBO(66, 33, 2, 1.0),
                   width: ScreenUtil.getInstance().setWidth(2208),
                   height: ScreenUtil.getInstance().setHeight(169),
                   decoration: BoxDecoration(
@@ -35,6 +34,17 @@ class HomePage extends StatelessWidget {
                       image: AssetImage("images/header.png"),
                       fit: BoxFit.cover,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(66, 33, 33, 0.7),
+                        blurRadius: 10.0, // has the effect of softening the shadow
+                        spreadRadius: 3.0, // has the effect of extending the shadow
+                        offset: Offset(
+                          3.0, // horizontal, move right 10
+                          3.0, // vertical, move down 10
+                        ),
+                      )
+                    ],
                   ),
                   child: Column(
                     children: <Widget>[
@@ -50,10 +60,21 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-//            color: Color.fromRGBO(66, 33, 2, 1.0),
-                  width: ScreenUtil.getInstance().setWidth(500),
+                  width: ScreenUtil.getInstance().setWidth(800),
                   height: ScreenUtil.getInstance().setHeight(169),
+                  margin: EdgeInsets.all(30),
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(66, 33, 33, 0.7),
+                        blurRadius: 10.0, // has the effect of softening the shadow
+                        spreadRadius: 3.0, // has the effect of extending the shadow
+                        offset: Offset(
+                          3.0, // horizontal, move right 10
+                          3.0, // vertical, move down 10
+                        ),
+                      )
+                    ],
                     image: DecorationImage(
                       image: AssetImage("images/header.png"),
                       fit: BoxFit.cover,
