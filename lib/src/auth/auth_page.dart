@@ -29,7 +29,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
-    bloc.getUser();
+//    bloc.getUser();
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
 //      setState(() {
 //        _currentUser = account;
@@ -67,7 +67,7 @@ class _AuthPageState extends State<AuthPage> {
                   print('helio'),
                   print('helio'),
                   print(res),
-                  Navigator.pop(context, 'home')
+                  Navigator.pushReplacementNamed(context, 'home')
                 });
               },
               child: Container(
@@ -81,13 +81,14 @@ class _AuthPageState extends State<AuthPage> {
             ),
              StreamBuilder(
                  stream: bloc.subject.stream,
+                 // ignore: missing_return
                  builder: (context, AsyncSnapshot<AuthModel> snapshot) {
-                   print(snapshot);
-                   print(snapshot.hasData);
-                   print(snapshot.data.title);
-                   print(snapshot.data.completed);
-                   if (snapshot.data.title != null) {
-                     return Text(snapshot.data.title);
+                   if (snapshot.hasData) {
+                     if (snapshot.data.title != null) {
+                       return Text(snapshot.data.title);
+                     } else {
+                       return Text('NO TITLE');
+                     }
                    } else {
                      return Text('LOADING');
                    }

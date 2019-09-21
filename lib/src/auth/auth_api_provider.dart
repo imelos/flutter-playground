@@ -10,7 +10,6 @@ class AuthApiProvider {
   Future<AuthModel> getUser() async {
     try {
       Response response = await _dio.get('https://jsonplaceholder.typicode.com/todos/1');
-      print(response);
       return AuthModel.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
