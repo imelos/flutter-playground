@@ -25,45 +25,59 @@ class _HomePageState extends State<HomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          children: <Widget>[
-            Container(
-              width: ScreenUtil.getInstance().setWidth(2208),
-              height: ScreenUtil.getInstance().setHeight(169),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/header.png"),
-                  fit: BoxFit.cover,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromRGBO(66, 33, 33, 0.7),
-                    blurRadius: 10.0, // has the effect of softening the shadow
-                    spreadRadius: 3.0, // has the effect of extending the shadow
-                    offset: Offset(
-                      3.0, // horizontal, move right 10
-                      3.0, // vertical, move down 10
-                    ),
-                  )
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ImageButtonWidget(
-                      data:Data(
-                        normal: 'assets/btn-bonus.png',
-                        pressed: 'assets/btn-bonus-pressed.png',
-                        width: 200.00,
-                        height: 30.00,
-                      )
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: ScreenUtil.getInstance().setWidth(2208),
+                height: ScreenUtil.getInstance().setHeight(169),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/header.png"),
+                    fit: BoxFit.cover,
                   ),
-//                  Image.asset('images/pic2.jpg'),
-//                  Image.asset('images/pic3.jpg'),
-                ],
-              ),
-            )
-          ],
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+//                        fit: BoxFit.cover, // otherwise the logo will be tiny
+                      color: Colors.transparent,
+                      alignment: Alignment.center,
+                        child: ImageButtonWidget(
+                            data:Data(
+                              normal: 'assets/btn-bonus.png',
+                              pressed: 'assets/btn-bonus-pressed.png',
+                              width: 545.00,
+                              height: 130.00,
+                            )
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.contain, // otherwise the logo will be tiny
+                        child: const FlutterLogo(),
+                      ),
+                    ),
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.contain, // otherwise the logo will be tiny
+                        child: const FlutterLogo(),
+                      ),
+                    ),
+                  ],
+                ),
+//                child: Container(
+//                  width: ScreenUtil.getInstance().setWidth(2208),
+//                  height: ScreenUtil.getInstance().setHeight(169),
+//                  color: Color(0xFF0E3311).withOpacity(0.0),
+//                  child: Center(
+//                  ),
+//                ),
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
