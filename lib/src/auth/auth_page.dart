@@ -23,8 +23,6 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   GoogleSignInAccount _currentUser;
-  AuthBloc bloc = AuthModule.to.getBloc<AuthBloc>();
-
   @override
   void initState() {
     super.initState();
@@ -49,7 +47,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 2208, height: 1242)..init(context);
-
+    AuthBloc bloc = BlocProvider.getBloc<AuthBloc>();
     return Container(
         padding: EdgeInsets.all(25.0),
         decoration: BoxDecoration(
@@ -60,7 +58,7 @@ class _AuthPageState extends State<AuthPage> {
         ),
         child: Column(
           children: <Widget>[
-            Text('bloc.user')
+            Text(bloc.user)
           ],
         ),
     );
