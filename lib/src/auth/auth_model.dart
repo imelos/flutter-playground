@@ -1,10 +1,11 @@
 class AuthModel {
-  int _page;
-  int _total_results;
-  int _total_pages;
+  final String title;
+  final String first;
+  final String last;
+  AuthModel(this.title, this.first, this.last);
 
-  AuthModel.getUser() {
-    print('model');
-    _page = 22;
-  }
+  AuthModel.fromJson(Map<String, dynamic> json)
+      : title = json["title"],
+        first = json["first"],
+        last = json["last"];
 }

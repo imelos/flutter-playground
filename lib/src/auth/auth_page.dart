@@ -58,7 +58,7 @@ class _AuthPageState extends State<AuthPage> {
         ),
         child: Column(
           children: <Widget>[
-            Text(bloc.user)
+            Text('bloc.subject')
           ],
         ),
     );

@@ -11,11 +11,10 @@ class AuthApiProvider {
     try {
       Response response = await _dio.get('https://google.com');
       print(response);
-      return AuthModel.getUser();
-//      return UserResponse.fromJson(response.data);
+      return AuthModel.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
-      return AuthModel.getUser();
+      return AuthModel.fromJson({'shit': 'test'});
     }
   }
 }
