@@ -13,6 +13,7 @@ class AuthBloc extends BlocBase{
   getUser() async {
     AuthModel response = await _repository.getUser();
     _subject.sink.add(response);
+    return response;
   }
 
   dispose() {

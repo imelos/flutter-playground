@@ -10,7 +10,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'auth_model.dart';
 
-
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
     'email',
@@ -32,10 +31,10 @@ class _AuthPageState extends State<AuthPage> {
     super.initState();
     bloc.getUser();
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
-      setState(() {
-        _currentUser = account;
-        debugPrint('movieTitle: $_currentUser');
-      });
+//      setState(() {
+//        _currentUser = account;
+//        debugPrint('movieTitle: $_currentUser');
+//      });
     });
     _googleSignIn.signInSilently();
   }
@@ -63,13 +62,14 @@ class _AuthPageState extends State<AuthPage> {
         child: Column(
           children: <Widget>[
             GestureDetector(
-              // When the child is tapped, show a snackbar.
               onTap: () {
-//                final snackBar = SnackBar(content: Text("Tap"));
-                  bloc.getUser();
-//                Scaffold.of(context).showSnackBar(snackBar);
+                bloc.getUser().then((res) => {
+                  print('helio'),
+                  print('helio'),
+                  print(res),
+                  Navigator.pop(context, 'home')
+                });
               },
-              // The custom button
               child: Container(
                 padding: EdgeInsets.all(12.0),
                 decoration: BoxDecoration(

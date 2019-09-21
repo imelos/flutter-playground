@@ -9,9 +9,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text("home page"),
-//      ),
       body: Container(
         padding: EdgeInsets.all(25.0),
         decoration: BoxDecoration(
