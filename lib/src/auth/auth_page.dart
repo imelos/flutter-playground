@@ -1,8 +1,13 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flut_test/src/auth/auth_bloc.dart';
+import 'package:flut_test/src/auth/auth_module.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
@@ -16,11 +21,10 @@ class AuthPage extends StatefulWidget {
   _AuthPageState createState() => _AuthPageState();
 }
 
-//class _AuthPageState extends State<AuthPage> {
-
-
 class _AuthPageState extends State<AuthPage> {
   GoogleSignInAccount _currentUser;
+  AuthBloc bloc = AuthModule.to.getBloc<AuthBloc>();
+
   @override
   void initState() {
     super.initState();
@@ -45,6 +49,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 2208, height: 1242)..init(context);
+
     return Container(
         padding: EdgeInsets.all(25.0),
         decoration: BoxDecoration(
@@ -53,9 +58,10 @@ class _AuthPageState extends State<AuthPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: GestureDetector(
-          onTap: _handleSignIn,
-          child: new Text("my Title"),
+        child: Column(
+          children: <Widget>[
+            Text('bloc.user')
+          ],
         ),
     );
   }
