@@ -10,14 +10,30 @@ class ImageButtonWidget extends StatefulWidget {
   ImageButtonWidget({Key key, this.data}): super(key: key);
 }
 
-class _ImageButtonWidgetState extends State<ImageButtonWidget> {
+class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTickerProviderStateMixin {
   String currentImage;
   AssetImage pressedImage;
+  AnimationController animationController;
+  Animation<double> animation;
   @override
   void initState() {
     currentImage = widget.data.normal;
     pressedImage = AssetImage(widget.data.pressed);
+    animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    )..addListener(() => setState(() {}));
+    animation = CurvedAnimation(
+      parent: animationController,
+      curve: Curves.easeInOut,
+    );
+    animationController.forward();
     super.initState();
+  }
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
   @override
   void didChangeDependencies() {
@@ -30,6 +46,8 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> {
       child: GestureDetector(
         onTapDown:(TapDownDetails details) {
           setState(() {
+            animationController.reset();
+            animationController.forward();
             currentImage = widget.data.pressed;
           });
         },
@@ -38,15 +56,18 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> {
             currentImage = widget.data.normal;
           });
         },
-        child: Container(
-            width: ScreenUtil.getInstance().setWidth(widget.data.width),
-            height: ScreenUtil.getInstance().setHeight(widget.data.height),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:  AssetImage(currentImage),
-                fit: BoxFit.contain,
+        child: ScaleTransition(
+            scale: animation,
+            child: Container(
+              width: ScreenUtil.getInstance().setWidth(widget.data.width),
+              height: ScreenUtil.getInstance().setHeight(widget.data.height),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image:  AssetImage(currentImage),
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
+            )
         ),
       ),
     );
