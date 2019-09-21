@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
 //                        fit: BoxFit.cover, // otherwise the logo will be tiny
                       color: Colors.transparent,
-                      alignment: Alignment.center,
+//                      alignment: Alignment.center,
                         child: ImageButtonWidget(
                             data:Data(
                               normal: 'assets/btn-bonus.png',
