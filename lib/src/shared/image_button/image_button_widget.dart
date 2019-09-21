@@ -9,9 +9,9 @@ class ImageButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromRGBO(66, 165, 00, 1.0),
-        width: ScreenUtil.getInstance().setWidth(200),
-        height: ScreenUtil.getInstance().setHeight(200),
+//        color: Color.fromRGBO(66, 165, 00, 1.0),
+        width: ScreenUtil.getInstance().setWidth(data.width),
+        height: ScreenUtil.getInstance().setHeight(data.height),
       )
     );
   }

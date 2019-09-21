@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flut_test/src/shared/image_button/image_button_widget.dart';
+import 'package:flut_test/src/shared/image_button/image_button_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,6 +9,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+//  final data = Data(
+//      normal: 'shit',
+//      pressed: 'better',
+//      width: 200.0,
+//      height: 40.0,
+//  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,15 +47,19 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              child: Column(
+              child: Row(
                 children: <Widget>[
-                  Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: Text("hello world"),
-                  ),
-                  Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: Text("hello world2"),
+//                  Directionality(
+//                    textDirection: TextDirection.ltr,
+//                    child: Text("hello world"),
+//                  ),
+                  ImageButtonWidget(
+                    data:Data(
+                      normal: 'shit',
+                      pressed: 'better',
+                      width: 30.0,
+                      height: 30.0,
+                    )
                   ),
                 ],
               ),
