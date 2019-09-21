@@ -17,24 +17,7 @@ class AuthPage extends StatefulWidget {
 }
 
 //class _AuthPageState extends State<AuthPage> {
-//  @override
-//  Widget build(BuildContext context) {
-//    return Scaffold(
-//      appBar: AppBar(
-//        title: Text("Auth"),
-//      ),
-//      body: Column(
-//        children: <Widget>[],
-//      ),
-//      floatingActionButton: FloatingActionButton(
-//        child: Icon(Icons.exit_to_app),
-//        onPressed: () {
-//          Navigator.pushNamed(context, 'home');
-//        },
-//      ),
-//    );
-//  }
-//}
+
 
 class _AuthPageState extends State<AuthPage> {
   GoogleSignInAccount _currentUser;
