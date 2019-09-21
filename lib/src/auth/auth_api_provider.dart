@@ -9,7 +9,7 @@ class AuthApiProvider {
 
   Future<AuthModel> getUser() async {
     try {
-      Response response = await _dio.get('https://google.com');
+      Response response = await _dio.get('https://jsonplaceholder.typicode.com/todos/1');
       print(response);
       return AuthModel.fromJson(response.data);
     } catch (error, stacktrace) {

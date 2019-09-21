@@ -66,6 +66,7 @@ class _AuthPageState extends State<AuthPage> {
               // When the child is tapped, show a snackbar.
               onTap: () {
 //                final snackBar = SnackBar(content: Text("Tap"));
+                  bloc.getUser();
                   print('hello bi4');
 //                Scaffold.of(context).showSnackBar(snackBar);
               },
@@ -82,6 +83,9 @@ class _AuthPageState extends State<AuthPage> {
              StreamBuilder(
                  stream: bloc.subject.stream,
                  builder: (context, AsyncSnapshot<AuthModel> snapshot) {
+                   print(snapshot);
+                   print(snapshot.hasData);
+                   print(snapshot.data);
                     return Text('test');
                  }
              )
