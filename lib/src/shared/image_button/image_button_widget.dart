@@ -12,10 +12,17 @@ class ImageButtonWidget extends StatefulWidget {
 
 class _ImageButtonWidgetState extends State<ImageButtonWidget> {
   String currentImage;
+  AssetImage pressedImage;
   @override
   void initState() {
     currentImage = widget.data.normal;
+    pressedImage = AssetImage(widget.data.pressed);
     super.initState();
+  }
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(pressedImage, context);
   }
   @override
   Widget build(BuildContext context) {
