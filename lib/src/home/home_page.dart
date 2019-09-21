@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
 //                  ),
                   ImageButtonWidget(
                     data:Data(
-                      normal: 'shit',
-                      pressed: 'better',
+                      normal: 'assets/btn-bonus.png',
+                      pressed: 'assets/btn-bonus-pressed.png',
                       width: 30.0,
                       height: 30.0,
                     )
