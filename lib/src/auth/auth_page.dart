@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter/foundation.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
@@ -43,9 +44,19 @@ class _AuthPageState extends State<AuthPage> {
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
       setState(() {
         _currentUser = account;
+        debugPrint('movieTitle: $_currentUser');
       });
     });
     _googleSignIn.signInSilently();
+  }
+
+  Future<void> _handleSignIn() async {
+    try {
+//      await _googleSignIn.signIn();
+      Navigator.pushNamed(context, 'home');
+    } catch (error) {
+      print(error);
+    }
   }
 
   @override
@@ -59,14 +70,10 @@ class _AuthPageState extends State<AuthPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Directionality(
-            textDirection: TextDirection.ltr,
-            child:Text("hello worlds",
-              style: TextStyle(
-                  color: Color.fromRGBO(255, 255, 255, 1)
-              ),
-            )
-        )
+        child: GestureDetector(
+          onTap: _handleSignIn,
+          child: new Text("my Title"),
+        ),
     );
   }
 }
