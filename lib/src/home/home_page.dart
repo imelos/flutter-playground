@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              child: Row(
+              child: Column(
                 children: <Widget>[
 //                  Directionality(
 //                    textDirection: TextDirection.ltr,
@@ -57,8 +57,8 @@ class _HomePageState extends State<HomePage> {
                     data:Data(
                       normal: 'assets/btn-bonus.png',
                       pressed: 'assets/btn-bonus-pressed.png',
-                      width: 30.0,
-                      height: 30.0,
+                      width: 30.00,
+                      height: 30.00,
                     )
                   ),
                 ],
