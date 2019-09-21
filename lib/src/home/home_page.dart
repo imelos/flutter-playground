@@ -48,19 +48,18 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               child: Column(
-                children: <Widget>[
-//                  Directionality(
-//                    textDirection: TextDirection.ltr,
-//                    child: Text("hello world"),
-//                  ),
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
                   ImageButtonWidget(
-                    data:Data(
-                      normal: 'assets/btn-bonus.png',
-                      pressed: 'assets/btn-bonus-pressed.png',
-                      width: 30.00,
-                      height: 30.00,
-                    )
+                      data:Data(
+                        normal: 'assets/btn-bonus.png',
+                        pressed: 'assets/btn-bonus-pressed.png',
+                        width: 200.00,
+                        height: 30.00,
+                      )
                   ),
+//                  Image.asset('images/pic2.jpg'),
+//                  Image.asset('images/pic3.jpg'),
                 ],
               ),
             )
