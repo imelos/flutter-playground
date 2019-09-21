@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
         onPressed: () {
-          Navigator.pop(context, 'login');
+          Navigator.pushNamed(context, 'login');
         },
       ),
     );
