@@ -30,6 +30,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
+    bloc.getUser();
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
       setState(() {
         _currentUser = account;
@@ -37,7 +38,6 @@ class _AuthPageState extends State<AuthPage> {
       });
     });
     _googleSignIn.signInSilently();
-    bloc.getUser();
   }
 
   Future<void> _handleSignIn() async {
@@ -85,8 +85,9 @@ class _AuthPageState extends State<AuthPage> {
                  builder: (context, AsyncSnapshot<AuthModel> snapshot) {
                    print(snapshot);
                    print(snapshot.hasData);
-                   print(snapshot.data);
-                    return Text('test');
+                   print(snapshot.data.title);
+                   print(snapshot.data.first);
+                    return Text(snapshot.data.title);
                  }
              )
           ],
