@@ -8,6 +8,8 @@ import 'package:flut_test/src/auth/auth_bloc.dart';
 import 'package:flut_test/src/auth/auth_module.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'auth_model.dart';
+
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
@@ -58,7 +60,12 @@ class _AuthPageState extends State<AuthPage> {
         ),
         child: Column(
           children: <Widget>[
-            Text('bloc.subject')
+             StreamBuilder(
+                 stream: bloc.subject.stream,
+                 builder: (context, AsyncSnapshot<AuthModel> snapshot) {
+                    return Text('test');
+                 }
+        )
           ],
         ),
     );
