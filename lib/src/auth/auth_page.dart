@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class AuthPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _AuthPageState createState() => _AuthPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("home page"),
+        title: Text("Auth"),
       ),
       body: Column(
         children: <Widget>[],
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
         onPressed: () {
-          Navigator.pop(context, 'login');
+          Navigator.pushReplacementNamed(context, 'home');
         },
       ),
     );
