@@ -67,7 +67,6 @@ class _AuthPageState extends State<AuthPage> {
               onTap: () {
 //                final snackBar = SnackBar(content: Text("Tap"));
                   bloc.getUser();
-                  print('hello bi4');
 //                Scaffold.of(context).showSnackBar(snackBar);
               },
               // The custom button
@@ -86,8 +85,12 @@ class _AuthPageState extends State<AuthPage> {
                    print(snapshot);
                    print(snapshot.hasData);
                    print(snapshot.data.title);
-                   print(snapshot.data.first);
-                    return Text(snapshot.data.title);
+                   print(snapshot.data.completed);
+                   if (snapshot.data.title != null) {
+                     return Text(snapshot.data.title);
+                   } else {
+                     return Text('LOADING');
+                   }
                  }
              )
           ],
