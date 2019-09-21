@@ -9,16 +9,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("home page"),
-      ),
-      body: Column(
-        children: <Widget>[],
+//      appBar: AppBar(
+//        title: Text("home page"),
+//      ),
+      body: Container(
+        padding: EdgeInsets.all(25.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/bg.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
         onPressed: () {
-          Navigator.pushNamed(context, 'login');
+          Navigator.pop(context, 'login');
         },
       ),
     );
