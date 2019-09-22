@@ -22,7 +22,7 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
     animationController = AnimationController(
       vsync: this,
 //      value: 0.92,
-      lowerBound: 0.95,
+      lowerBound: 0.94,
       duration: Duration(milliseconds: 333),
     )..addListener(() => setState(() {}));
     animation = CurvedAnimation(
