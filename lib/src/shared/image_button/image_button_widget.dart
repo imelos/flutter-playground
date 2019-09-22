@@ -21,13 +21,15 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
     pressedImage = AssetImage(widget.data.pressed);
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+//      value: 0.92,
+      lowerBound: 0.95,
+      duration: Duration(milliseconds: 333),
     )..addListener(() => setState(() {}));
     animation = CurvedAnimation(
       parent: animationController,
-      curve: Curves.easeInOut,
+      curve: Curves.easeInOutSine,
     );
-    animationController.forward();
+//    animationController.forward();
     super.initState();
   }
   @override
