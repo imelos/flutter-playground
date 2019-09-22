@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/bg.jpg"),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
         child: Container(
@@ -34,8 +34,14 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/header.png"),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ),
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Colors.orangeAccent,
+                      blurRadius: 3.0,
+                    )
+                  ],
                 ),
                 child: Row(
                   children: <Widget>[

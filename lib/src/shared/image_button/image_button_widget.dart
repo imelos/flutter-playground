@@ -21,15 +21,14 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
     pressedImage = AssetImage(widget.data.pressed);
     animationController = AnimationController(
       vsync: this,
-//      value: 0.92,
       lowerBound: 0.94,
+      upperBound: 0.98,
       duration: Duration(milliseconds: 333),
     )..addListener(() => setState(() {}));
     animation = CurvedAnimation(
       parent: animationController,
       curve: Curves.easeInOutSine,
     );
-//    animationController.forward();
     super.initState();
   }
   @override
@@ -58,18 +57,21 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
             currentImage = widget.data.normal;
           });
         },
-        child: ScaleTransition(
-            scale: animation,
-            child: Container(
-              width: ScreenUtil.getInstance().setWidth(widget.data.width),
-              height: ScreenUtil.getInstance().setHeight(widget.data.height),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image:  AssetImage(currentImage),
-                  fit: BoxFit.contain,
+        child: FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(
+              scale: animation,
+              child: Container(
+                width: ScreenUtil.getInstance().setWidth(widget.data.width),
+                height: ScreenUtil.getInstance().setHeight(widget.data.height),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image:  AssetImage(currentImage),
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-            )
+              )
+          ),
         ),
       ),
     );
