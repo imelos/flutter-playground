@@ -3,5 +3,8 @@ class Data {
   String pressed;
   double width;
   double height;
-  Data({this.normal, this.pressed, this.width, this.height});
+  final VoidCallback onPress;
+  Data({this.normal, this.pressed, this.width, this.height, this.onPress});
 }
+
+typedef void VoidCallback();

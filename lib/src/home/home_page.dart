@@ -15,6 +15,10 @@ class _HomePageState extends State<HomePage> {
 //      width: 200.0,
 //      height: 40.0,
 //  );
+  void logTest() {
+    print('button pressed');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,15 +51,14 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     Expanded(
                       child: Container(
-//                        fit: BoxFit.cover, // otherwise the logo will be tiny
                       color: Colors.transparent,
-//                      alignment: Alignment.center,
                         child: ImageButtonWidget(
                             data:Data(
                               normal: 'assets/btn-bonus.png',
                               pressed: 'assets/btn-bonus-pressed.png',
                               width: 545.00,
                               height: 130.00,
+                              onPress: logTest,
                             )
                         ),
                       ),
@@ -74,13 +77,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-//                child: Container(
-//                  width: ScreenUtil.getInstance().setWidth(2208),
-//                  height: ScreenUtil.getInstance().setHeight(169),
-//                  color: Color(0xFF0E3311).withOpacity(0.0),
-//                  child: Center(
-//                  ),
-//                ),
               )
             ],
           ),

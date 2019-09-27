@@ -53,6 +53,7 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
           });
         },
         onTapUp: (TapUpDetails details) {
+          widget.data.onPress();
           setState(() {
             currentImage = widget.data.normal;
           });
