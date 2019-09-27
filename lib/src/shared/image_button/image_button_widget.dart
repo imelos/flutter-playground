@@ -43,36 +43,34 @@ class _ImageButtonWidgetState extends State<ImageButtonWidget> with SingleTicker
   }
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child: GestureDetector(
-        onTapDown:(TapDownDetails details) {
-          setState(() {
-            animationController.reset();
-            animationController.forward();
-            currentImage = widget.data.pressed;
-          });
-        },
-        onTapUp: (TapUpDetails details) {
-          widget.data.onPress();
-          setState(() {
-            currentImage = widget.data.normal;
-          });
-        },
-        child: FadeTransition(
-          opacity: animation,
-          child: ScaleTransition(
-              scale: animation,
-              child: Container(
-                width: ScreenUtil.getInstance().setWidth(widget.data.width),
-                height: ScreenUtil.getInstance().setHeight(widget.data.height),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image:  AssetImage(currentImage),
-                    fit: BoxFit.contain,
-                  ),
+    return  GestureDetector(
+      onTapDown:(TapDownDetails details) {
+        setState(() {
+          animationController.reset();
+          animationController.forward();
+          currentImage = widget.data.pressed;
+        });
+      },
+      onTapUp: (TapUpDetails details) {
+        widget.data.onPress();
+        setState(() {
+          currentImage = widget.data.normal;
+        });
+      },
+      child: FadeTransition(
+        opacity: animation,
+        child: ScaleTransition(
+            scale: animation,
+            child: Container(
+              width: ScreenUtil.getInstance().setWidth(widget.data.width),
+              height: ScreenUtil.getInstance().setHeight(widget.data.height),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image:  AssetImage(currentImage),
+                  fit: BoxFit.contain,
                 ),
-              )
-          ),
+              ),
+            )
         ),
       ),
     );
