@@ -6,6 +6,7 @@ import 'package:flut_test/src/auth/auth_page.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/services.dart';
 import 'package:flut_test/src/auth/auth_module.dart';
+import 'package:flut_test/src/home/home_module.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AppWidget extends StatelessWidget {
       return new AuthModule();
     }));
     router.define('home', handler: new Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-      return new HomePage();
+      return new HomeModule();
     }));
     return MaterialApp(
       home: AuthModule(),

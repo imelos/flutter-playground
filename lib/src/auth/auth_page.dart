@@ -24,12 +24,12 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   GoogleSignInAccount _currentUser;
-  AuthBloc bloc = AuthModule.to.bloc<AuthBloc>();
+  final AuthBloc bloc = AuthModule.to.bloc<AuthBloc>();
 
   @override
   void initState() {
     super.initState();
-    bloc.getUser();
+//    bloc.getUser();
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
 //      setState(() {
 //        _currentUser = account;
@@ -64,8 +64,6 @@ class _AuthPageState extends State<AuthPage> {
           GestureDetector(
             onTap: () {
               bloc.getUser().then((res) {
-                print('!!!!!bloc.subject.value!!!!');
-                print(res);
                 Navigator.pushReplacementNamed(context, 'home');
               });
             },

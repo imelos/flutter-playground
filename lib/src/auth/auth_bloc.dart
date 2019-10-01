@@ -5,18 +5,20 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flut_test/src/auth/auth_repository.dart';
 
-class AuthBloc extends BlocBase{
+class AuthBloc extends BlocBase {
   final AuthRepository _repository = AuthRepository();
-  final BehaviorSubject<AuthModel> _subject =
-  BehaviorSubject<AuthModel>();
+  final BehaviorSubject<AuthModel> _subject = BehaviorSubject<AuthModel>();
 
   getUser() async {
     AuthModel response = await _repository.getUser();
     _subject.sink.add(response);
     return response;
   }
-//  dispose() {
+
+//  @override
+//  void dispose() {
 //    _subject.close();
+//    super.dispose();
 //  }
 
   BehaviorSubject<AuthModel> get subject => _subject;

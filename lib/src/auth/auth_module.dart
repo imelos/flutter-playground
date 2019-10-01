@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class AuthModule extends ModuleWidget {
   @override
-  List<Bloc> get blocs => [
-        Bloc((i) => AuthBloc()),
+  List<Bloc<BlocBase>> get blocs => [
+        Bloc((i) => AuthBloc(), singleton: true),
       ];
 
   @override
