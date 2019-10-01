@@ -15,10 +15,9 @@ class AuthBloc extends BlocBase{
     _subject.sink.add(response);
     return response;
   }
-
-  dispose() {
-    _subject.close();
-  }
+//  dispose() {
+//    _subject.close();
+//  }
 
   BehaviorSubject<AuthModel> get subject => _subject;
 }

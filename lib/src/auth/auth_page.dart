@@ -29,7 +29,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
-//    bloc.getUser();
+    bloc.getUser();
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
 //      setState(() {
 //        _currentUser = account;
@@ -52,51 +52,48 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 2208, height: 1242)..init(context);
     return Container(
-        padding: EdgeInsets.all(25.0),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/asuka_love.png"),
-            fit: BoxFit.cover,
-          ),
+      padding: EdgeInsets.all(25.0),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/asuka_love.png"),
+          fit: BoxFit.cover,
         ),
-        child: Column(
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                bloc.getUser().then((res) => {
-                  print('helio'),
-                  print('helio'),
-                  print(res),
-                  Navigator.pushReplacementNamed(context, 'home')
-                });
-              },
-              child: Container(
-                padding: EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).buttonColor,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text('My Button'),
+      ),
+      child: Column(
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              bloc.getUser().then((res) {
+                print('!!!!!bloc.subject.value!!!!');
+                print(res);
+                Navigator.pushReplacementNamed(context, 'home');
+              });
+            },
+            child: Container(
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: Theme.of(context).buttonColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
+              child: Text('My Button'),
             ),
-             StreamBuilder(
-                 stream: bloc.subject.stream,
-                 // ignore: missing_return
-                 builder: (context, AsyncSnapshot<AuthModel> snapshot) {
-                   if (snapshot.hasData) {
-                     if (snapshot.data.title != null) {
-                       return Text(snapshot.data.title);
-                     } else {
-                       return Text('NO TITLE');
-                     }
-                   } else {
-                     return Text('LOADING');
-                   }
-                 }
-             )
-          ],
-        ),
+          ),
+          StreamBuilder(
+              stream: bloc.subject.stream,
+              // ignore: missing_return
+              builder: (context, AsyncSnapshot<AuthModel> snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data.title != null) {
+                    return Text(snapshot.data.title);
+                  } else {
+                    return Text('NO TITLE');
+                  }
+                } else {
+                  return Text('LOADING');
+                }
+              })
+        ],
+      ),
     );
   }
 }
-
