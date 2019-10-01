@@ -19,7 +19,7 @@ environment:
 dependencies:
   dio: ^3.0.1
   rxdart: ^0.22.2
-  bloc_pattern: ^2.3.2
+  bloc_pattern: ^2.3.3
   flutter:
     sdk: flutter
   flutter_screenutil: ^0.5.3

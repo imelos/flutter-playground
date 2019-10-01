@@ -22,5 +22,3 @@ class AuthBloc extends BlocBase{
 
   BehaviorSubject<AuthModel> get subject => _subject;
 }
-
-final bloc = AuthBloc();

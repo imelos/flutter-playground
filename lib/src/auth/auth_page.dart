@@ -24,7 +24,7 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   GoogleSignInAccount _currentUser;
-  AuthBloc bloc = BlocProvider.getBloc<AuthBloc>();
+  AuthBloc bloc = AuthModule.to.bloc<AuthBloc>();
 
   @override
   void initState() {

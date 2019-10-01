@@ -1,5 +1,6 @@
 import 'package:flut_test/src/auth/auth_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:flut_test/src/auth/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthModule extends ModuleWidget {
@@ -12,7 +13,7 @@ class AuthModule extends ModuleWidget {
   List<Dependency> get dependencies => [];
 
   @override
-  Widget get view => Container();
+  Widget get view => AuthPage();
 
   static Inject get to => Inject<AuthModule>.of();
 }
