@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flut_test/src/shared/image_button/image_button_widget.dart';
-import 'package:flut_test/src/shared/image_button/image_button_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,14 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-//  final data = Data(
-//      normal: 'shit',
-//      pressed: 'better',
-//      width: 200.0,
-//      height: 40.0,
-//  );
   void logTest() {
-    print('button pressed');
+    print('button pressed5');
   }
 
   @override
@@ -53,13 +46,11 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                       color: Colors.transparent,
                         child: ImageButtonWidget(
-                            data:Data(
-                              normal: 'assets/btn-bonus.png',
-                              pressed: 'assets/btn-bonus-pressed.png',
-                              width: 545.00,
-                              height: 130.00,
-                              onPress: logTest,
-                            )
+                          normal: AssetImage('assets/btn-bonus.png'),
+                          pressed: AssetImage('assets/btn-bonus-pressed.png'),
+                          width: ScreenUtil.getInstance().setWidth(545.00),
+                          height: ScreenUtil.getInstance().setWidth(130.00),
+                          onPress: logTest,
                         ),
                       ),
                     ),
